@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPEC Saint Babeth</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f5f7fa;
+    }
+
+    header {
+      background: #004080;
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') no-repeat center/cover;
+      color: white;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      background: #ff6600;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .hero button:hover {
+      background: #e65c00;
+    }
+
+    section {
+      padding: 40px;
+      width: 90%;
+      margin: auto;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #0066cc;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h2>CPEC Saint Babeth</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <h1>Welcome to CPEC Saint Babeth</h1>
+  <p>Empowering students with practical and technical skills</p>
+  <button onclick="applyNow()">Apply Now</button>
+</div>
+
+<section id="departments">
+  <h2>Departments</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Ordinary Level</h3>
+      <p>Quality general education foundation.</p>
+    </div>
+    <div class="card">
+      <h3>Software Development</h3>
+      <p>Learn programming from L3 to L5.</p>
+    </div>
+    <div class="card">
+      <h3>Multimedia</h3>
+      <p>Design, video editing and digital creativity.</p>
+    </div>
+  </div>
+</section>
+
+<section id="workshops">
+  <h2>Workshops</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Development Workshop</h3>
+      <p>Hands-on coding projects and real practice.</p>
+    </div>
+    <div class="card">
+      <h3>Multimedia Workshop</h3>
+      <p>Modern tools for graphics and animation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>CPEC Saint Babeth is a private school in Kigali offering general and technical education with focus on practical skills.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="messageText" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="formMessage"></p>
+</section>
+
+<footer>
+  <p>&copy; 2026 CPEC Saint Babeth. All rights reserved.</p>
+</footer>
+
+<script>
+  function applyNow() {
+    alert("Application feature coming soon! Please contact the school for now.");
+  }
+
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("messageText").value.trim();
+    let feedback = document.getElementById("formMessage");
+
+    if (name === "" || email === "" || message === "") {
+      feedback.innerHTML = "Please fill in all fields.";
+      feedback.className = "error";
+      return;
+    }
+
+    if (!email.includes("@")) {
+      feedback.innerHTML = "Please enter a valid email.";
+      feedback.className = "error";
+      return;
+    }
+
+    feedback.innerHTML = "Thank you, " + name + "! Your message has been sent successfully.";
+    feedback.className = "success";
+
+    document.getElementById("contactForm").reset();
+  });
+</script>
+
+</body>
+</html>
